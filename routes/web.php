@@ -14,6 +14,8 @@ use App\Http\Controllers\ProductByCategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ManageOrderController;
+use App\Http\Controllers\PaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,12 +44,19 @@ Route::post('/update-item/', [CartController::class, 'update_cart_item']);
 
 // Check Out Section here .......................  
 Route::get('/check-out-view/', [CheckOutController::class, 'index']);
+Route::post('/insert-shipping-info/', [CheckOutController::class, 'insert_shipping_info']);
+Route::get('/payment-view/', [CheckOutController::class, 'payment_view']);
+Route::post('/payment-option-selected/', [CheckOutController::class, 'payment_of_customer']);
 
 // Login and signin section here........................... 
 Route::get('/longin-to-view/',[LoginController::class, 'index']);
 Route::post('/insert-customer/',[LoginController::class, 'insert']);
 Route::post('/faching-customer-login/',[LoginController::class, 'login']);
+Route::get('/longout-to-view/',[LoginController::class, 'customer_logout']);
 
+
+// Bkash payment section................. 
+Route::post('token', [PaymentController::class, 'token'])->name('token');
 
 
 
@@ -105,4 +114,8 @@ Route::get('/all-slider', [SliderController::class, 'show']);
 Route::get('/delete_slider/{id}', [SliderController::class, 'destroy']);
 Route::get('/unActive_slider/{id}', [SliderController::class, 'unactive']);
 Route::get('/active_slider/{id}', [SliderController::class, 'active']);
+
+// Manage Order Controller here......................... 
+Route::get('/manage-order',[ManageOrderController::class, 'index']);
+Route::get('/view-manage-product/{id}',[ManageOrderController::class, 'view']);
 

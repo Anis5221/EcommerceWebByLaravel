@@ -24,6 +24,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css'>
 	<!-- end: CSS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="{{asset("backend/css/manageproduct.css")}}">
 		
 	<!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -348,7 +350,7 @@
 						<li><a href="{{URL::to("/add-product")}}"><i class="icon-edit"></i><span class="hidden-tablet"> Add Product</span></a></li>
 						<li><a href="{{URL::to("/all-slider")}}"><i class="icon-list-alt"></i><span class="hidden-tablet"> All Slaider</span></a></li>
 						<li><a href="{{URL::to("/add-slider")}}"><i class="icon-font"></i><span class="hidden-tablet"> Add Slaider</span></a></li>
-						<li><a href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li>
+						<li><a href="{{URL::to("/manage-order")}}"><i class="icon-picture"></i><span class="hidden-tablet"> Manage Order</span></a></li>
 						<li><a href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tables</span></a></li>
 						<li><a href="calendar.html"><i class="icon-calendar"></i><span class="hidden-tablet"> Calendar</span></a></li>
 						<li><a href="file-manager.html"><i class="icon-folder-open"></i><span class="hidden-tablet"> File Manager</span></a></li>

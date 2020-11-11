@@ -1,0 +1,13 @@
+.up-side{
+    justify-content: space-around;
+    display: flex;
+}
+.left-side{
+ 
+}
+.right-side{
+
+}
+td, th {
+    padding: 8px;
+  }

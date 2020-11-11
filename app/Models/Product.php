@@ -22,4 +22,9 @@ class Product extends Model
         'publication_status'
 
     ];
+
+    public function order_detail()
+    {
+        return $this->hasMany('App\Models\Order_Detail');
+    }
 }

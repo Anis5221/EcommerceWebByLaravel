@@ -34,18 +34,20 @@
 
         <div class="shopper-informations">
             <div class="row">
-                <div class="col-sm-12 col-10 mx-auto">
+                <div class="col-sm-12 mx-auto">
                     <div class="bill-to">
                         <p>Bill To</p>
                         <div class="form-one">
-                            <form>
-                                <input type="email" name="email" placeholder="Email">
-                                <input type="text" name="fname" placeholder="First Name">
-                                <input type="text" name="lname" placeholder="Last Name">
-                                <input type="text" name="address" placeholder="Address">
-                                <input type="text" name="phone" placeholder="Mobile Number">
-                                <input type="text" name="city" placeholder="City">
-                                <input type="password" placeholder="password">
+                        <form action="{{url('/insert-shipping-info/')}}" method="POST">
+                            @csrf
+                                <input type="text" required name="shipping_name" placeholder="Shipping Name">
+                                <input type="email" required name="shipping_email" placeholder="Enter Email">
+                                <input type="text" required name="fname" placeholder="First Name">
+                                <input type="text" required name="lname" placeholder="Last Name">
+                                <input type="text" required name="address" placeholder="Address">
+                                <input type="text" required name="phone_number" placeholder="Mobile Number">
+                                <input type="text" required name="city" placeholder="City">
+                                <input type="password" required name="password"placeholder="password">
                                 <input type="submit" class="btn btn-dark" value="Submit">
                             </form>
                         </div>
@@ -55,17 +57,7 @@
                 					
             </div>
         </div>
-        <div class="payment-options">
-                <span>
-                    <label><input type="checkbox"> Direct Bank Transfer</label>
-                </span>
-                <span>
-                    <label><input type="checkbox"> Check Payment</label>
-                </span>
-                <span>
-                    <label><input type="checkbox"> Paypal</label>
-                </span>
-            </div>
+        
     </div>
 </section> <!--/#cart_items-->
 

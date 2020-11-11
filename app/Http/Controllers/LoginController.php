@@ -28,8 +28,10 @@ class LoginController extends Controller
             $inser_cutomer_info->customer_phone=$request->customer_phone;
             $inser_cutomer_info->password=$request->password;
             if($inser_cutomer_info->save()){
-                session::put('message', 'Sign Up Success');
-                return back();
+                $result = Customer::where('customer_email',$request->customer_email)->where('password', $request->password)->first();
+                session :: put('customer_name', $result->customer_name);
+                session :: put('customer_id', $result->id);
+                return redirect()->to('/');
             }
 
     }
@@ -42,10 +44,15 @@ class LoginController extends Controller
             session :: put('messege', 'Email or password incorrect');
             return back();
         }else{
-            session :: put('messege', 'Success');
-            session :: put('admin_name', $result->customer_name);
-            session :: put('admin_id', $result->id);
-            return back();
+    
+            session :: put('customer_name', $result->customer_name);
+            session :: put('customer_id', $result->id);
+            return redirect()->to('/');
         }
+    }
+
+    public function customer_logout(){
+        Session::flush();
+        return redirect()->to('/');
     }
 }
